@@ -1,107 +1,109 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Redxz Social Media</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redxz Social Media</title>
 
-<style>
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #0a0f2c, #02020a);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  color: white;
-}
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0a0f2c, #02020a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      padding: 20px;
+    }
 
-.wrapper {
-  text-align: center;
-  animation: fadeIn 1.5s ease;
-}
+    .wrapper {
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+      width: 100%;
+      max-width: 420px;
+    }
 
-.avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 3px solid cyan;
-  box-shadow: 0 0 25px cyan;
-  animation: pulse 2.5s infinite;
-  object-fit: cover;
-  background: black;
-}
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid cyan;
+      box-shadow: 0 0 25px cyan;
+      animation: pulse 2.5s infinite;
+      object-fit: cover;
+      background: black;
+    }
 
-.title {
-  margin: 18px 0 30px;
-  font-size: 26px;
-  letter-spacing: 2px;
-  text-shadow: 0 0 8px cyan, 0 0 16px cyan;
-  animation: glitch 3s infinite;
-}
+    .title {
+      margin: 18px 0 30px;
+      font-size: 24px;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px cyan, 0 0 16px cyan;
+      animation: glitch 3s infinite;
+    }
 
-.social-container {
-  width: 340px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+    .social-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-.social-btn {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 16px;
-  border-radius: 12px;
-  cursor: pointer;
-  border: none;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: 0.3s;
-  box-shadow: 0 0 20px rgba(0,255,255,0.35);
-}
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 16px;
+      border-radius: 14px;
+      cursor: pointer;
+      border: none;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 0 20px rgba(0,255,255,0.35);
+    }
 
-.social-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 40px rgba(0,255,255,0.9);
-}
+    .social-btn:active {
+      transform: scale(0.97);
+    }
 
-.social-btn img {
-  width: 42px;
-  height: 42px;
-}
+    .social-btn img {
+      width: 40px;
+      height: 40px;
+    }
 
-.tiktok { background: linear-gradient(90deg, #00f2ea, #ff0050); }
-.whatsapp { background: linear-gradient(90deg, #00ff9d, #00c46a); }
-.wa-channel { background: linear-gradient(90deg, #00ffc3, #00a98f); }
-.discord { background: linear-gradient(90deg, #5865f2, #8ea1ff); }
+    .tiktok { background: linear-gradient(90deg, #00f2ea, #ff0050); }
+    .whatsapp { background: linear-gradient(90deg, #00ff9d, #00c46a); }
+    .wa-channel { background: linear-gradient(90deg, #00ffc3, #00a98f); }
+    .discord { background: linear-gradient(90deg, #5865f2, #8ea1ff); }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 15px cyan; }
-  50% { box-shadow: 0 0 40px cyan; }
-  100% { box-shadow: 0 0 15px cyan; }
-}
+    @keyframes pulse {
+      0% { box-shadow: 0 0 15px cyan; }
+      50% { box-shadow: 0 0 40px cyan; }
+      100% { box-shadow: 0 0 15px cyan; }
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-@keyframes glitch {
-  0% { text-shadow: 0 0 8px cyan; }
-  50% { text-shadow: 2px 0 red, -2px 0 cyan; }
-  100% { text-shadow: 0 0 8px cyan; }
-}
-</style>
+    @keyframes glitch {
+      0% { text-shadow: 0 0 8px cyan; }
+      50% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      100% { text-shadow: 0 0 8px cyan; }
+    }
+  </style>
 </head>
 
 <body>
 
 <div class="wrapper">
 
-  <!-- AVATAR -->
   <img class="avatar"
        src="https://raw.githubusercontent.com/RedxzAjaa/assets/main/image.png"
        onerror="this.src='https://via.placeholder.com/140'"
@@ -132,7 +134,7 @@ body {
 function openLink(type) {
   const links = {
     tiktok: "https://www.tiktok.com/@redxzaja?_r=1&_t=ZS-92eml5jnAxd",
-    whatsapp: "https://wa.me/+6285199236613",
+    whatsapp: "https://wa.me/6285199236613",
     waChannel: "https://whatsapp.com/channel/0029Vb6pFq6BvvsgM44eI825",
     discord: "https://discord.gg/NkbhEuSF"
   };
