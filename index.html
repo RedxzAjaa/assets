@@ -5,24 +5,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Redxz Social Media</title>
 
+<!-- FAVICON EMOJI 💰 -->
+<link rel="icon" type="image/svg+xml"
+href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+
 <style>
 body {
   margin: 0;
   min-height: 100vh;
   background: radial-gradient(circle at top, #0a0f2c, #02020a);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: Arial, sans-serif;
   color: white;
   padding: 20px;
 }
 
+/* ===== DONATE ICON TOP LEFT ===== */
+.donate-wrapper {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 99999;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.donate-wrapper.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.donate-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #00ff88;
+  background: rgba(0,255,136,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0,255,136,0.8);
+}
+
+.donate-icon span {
+  font-size: 22px;
+}
+
+.donate-label {
+  margin-top: 4px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #00ff88;
+  text-shadow: 0 0 8px rgba(0,255,136,0.9);
+  user-select: none;
+}
+
+/* ===== CENTER WRAPPER ===== */
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  width: 100%;
   max-width: 420px;
+  margin: auto;
 }
 
 .avatar {
@@ -47,6 +98,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
 }
 
 .social-btn {
@@ -88,9 +140,7 @@ body {
   font-size: 12px;
   letter-spacing: 1.5px;
   color: rgba(200, 200, 200, 0.45);
-  text-transform: uppercase;
   user-select: none;
-  pointer-events: none;
 }
 
 /* ANIMASI */
@@ -114,6 +164,14 @@ body {
 </head>
 
 <body>
+
+<!-- DONATE ICON + LABEL -->
+<div class="donate-wrapper" id="donateBtn" onclick="donate()">
+  <div class="donate-icon">
+    <span>💰</span>
+  </div>
+  <div class="donate-label">DONATE</div>
+</div>
 
 <div class="wrapper">
 
@@ -141,26 +199,14 @@ alt="Redxz Avatar">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png"> Discord
 </button>
 
-<!-- VIDEO -->
-<video
-  class="profile-video"
-  autoplay
-  muted
-  loop
-  playsinline
-  webkit-playsinline
-  disablePictureInPicture
-  preload="metadata">
-
+<video class="profile-video" autoplay muted loop playsinline preload="metadata">
   <source src="https://res.cloudinary.com/dektkgk3k/video/upload/video_z8tmde.mp4" type="video/mp4">
 </video>
 
-<!-- WATERMARK -->
 <div class="watermark">
   BY: REDXZ — COPYRIGHT © ALL RIGHTS RESERVED
 </div>
 
-</div>
 </div>
 
 <script>
@@ -173,6 +219,26 @@ function openLink(type) {
   };
   window.open(links[type], "_blank");
 }
+
+function donate() {
+  window.open("https://donate-redxz.edgeone.app", "_blank");
+}
+
+/* ===== AUTO HIDE ON SCROLL ===== */
+let lastScroll = 0;
+const donateBtn = document.getElementById("donateBtn");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll && currentScroll > 80) {
+    donateBtn.classList.add("hide");
+  } else {
+    donateBtn.classList.remove("hide");
+  }
+
+  lastScroll = currentScroll;
+});
 </script>
 
 </body>
