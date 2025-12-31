@@ -19,7 +19,7 @@ body {
   padding: 20px;
 }
 
-/* ===== POPUP NOTIFICATION ===== */
+/* ===== POPUP ===== */
 .popup-notif {
   position: fixed;
   top: -120px;
@@ -50,7 +50,7 @@ body {
   to { top: -140px; }
 }
 
-/* ===== DONATE ICON TOP LEFT ===== */
+/* ===== DONATE ===== */
 .donate-wrapper {
   position: fixed;
   top: 14px;
@@ -94,7 +94,7 @@ body {
   user-select: none;
 }
 
-/* ===== CENTER WRAPPER ===== */
+/* ===== CENTER ===== */
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -118,13 +118,23 @@ body {
 }
 
 .title {
-  margin: 18px 0 30px;
+  margin: 18px 0 6px;
   font-size: 24px;
   letter-spacing: 2px;
   text-shadow: 0 0 8px cyan, 0 0 16px cyan;
   animation: glitch 3s infinite;
 }
 
+/* SUBTITLE BARU */
+.subtitle {
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  color: rgba(200, 255, 255, 0.75);
+  margin-bottom: 26px;
+  text-shadow: 0 0 6px rgba(0,255,255,0.4);
+}
+
+/* ===== SOSMED ===== */
 .social-container {
   display: flex;
   flex-direction: column;
@@ -196,43 +206,44 @@ body {
 
 <body>
 
-<!-- POPUP -->
 <div id="popupNotif" class="popup-notif">
   Design by <strong>Redxz</strong>
 </div>
 
-<!-- DONATE -->
 <div class="donate-wrapper" id="donateBtn" onclick="donate()">
   <div class="donate-icon"><span>💰</span></div>
   <div class="donate-label">DONATE</div>
 </div>
 
 <div class="wrapper">
-<img class="avatar" src="https://raw.githubusercontent.com/RedxzAjaa/assets/main/image.png">
-<div class="title">REDXZ SOCIAL MEDIA</div>
+  <img class="avatar" src="https://raw.githubusercontent.com/RedxzAjaa/assets/main/image.png">
 
-<div class="social-container">
-<button class="social-btn tiktok" onclick="openLink('tiktok')">
-<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"> TikTok
-</button>
+  <div class="title">REDXZ SOCIAL MEDIA</div>
+  <div class="subtitle">Tempat semua Sosmed Saya</div>
 
-<button class="social-btn whatsapp" onclick="openLink('whatsapp')">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp
-</button>
+  <div class="social-container">
+    <button class="social-btn tiktok" onclick="openLink('tiktok')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"> TikTok
+    </button>
 
-<button class="social-btn wa-channel" onclick="openLink('waChannel')">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp Channel
-</button>
+    <button class="social-btn whatsapp" onclick="openLink('whatsapp')">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp
+    </button>
 
-<button class="social-btn discord" onclick="openLink('discord')">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png"> Discord
-</button>
+    <button class="social-btn wa-channel" onclick="openLink('waChannel')">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp Channel
+    </button>
 
-<video class="profile-video" autoplay muted loop playsinline>
-<source src="https://res.cloudinary.com/dektkgk3k/video/upload/video_z8tmde.mp4">
-</video>
+    <button class="social-btn discord" onclick="openLink('discord')">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png"> Discord
+    </button>
 
-<div class="watermark">BY: REDXZ — COPYRIGHT © ALL RIGHTS RESERVED</div>
+    <video class="profile-video" autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dektkgk3k/video/upload/video_z8tmde.mp4">
+    </video>
+
+    <div class="watermark">BY: REDXZ — COPYRIGHT © ALL RIGHTS RESERVED</div>
+  </div>
 </div>
 
 <script>
@@ -250,7 +261,6 @@ function donate() {
   window.open("https://donate-redxz.edgeone.app", "_blank");
 }
 
-/* AUTO HIDE DONATE */
 let lastScroll = 0;
 const donateBtn = document.getElementById("donateBtn");
 
@@ -261,7 +271,6 @@ window.addEventListener("scroll", () => {
   lastScroll = current;
 });
 
-/* POPUP AUTO */
 window.addEventListener("load", () => {
   const popup = document.getElementById("popupNotif");
   setTimeout(() => popup.classList.add("popup-hide"), 3000);
