@@ -19,6 +19,37 @@ body {
   padding: 20px;
 }
 
+/* ===== POPUP NOTIFICATION ===== */
+.popup-notif {
+  position: fixed;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: #00ffcc;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  box-shadow: 0 0 25px rgba(0,255,204,0.6);
+  z-index: 999999;
+  animation: popupIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.popup-hide {
+  animation: popupOut 0.7s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+}
+
+@keyframes popupIn {
+  from { top: -120px; }
+  to { top: 18px; }
+}
+
+@keyframes popupOut {
+  from { top: 18px; }
+  to { top: -140px; }
+}
+
 /* ===== DONATE ICON TOP LEFT ===== */
 .donate-wrapper {
   position: fixed;
@@ -165,24 +196,22 @@ body {
 
 <body>
 
-<!-- DONATE ICON + LABEL -->
+<!-- POPUP -->
+<div id="popupNotif" class="popup-notif">
+  Design by <strong>Redxz</strong>
+</div>
+
+<!-- DONATE -->
 <div class="donate-wrapper" id="donateBtn" onclick="donate()">
-  <div class="donate-icon">
-    <span>💰</span>
-  </div>
+  <div class="donate-icon"><span>💰</span></div>
   <div class="donate-label">DONATE</div>
 </div>
 
 <div class="wrapper">
-
-<img class="avatar"
-src="https://raw.githubusercontent.com/RedxzAjaa/assets/main/image.png"
-alt="Redxz Avatar">
-
+<img class="avatar" src="https://raw.githubusercontent.com/RedxzAjaa/assets/main/image.png">
 <div class="title">REDXZ SOCIAL MEDIA</div>
 
 <div class="social-container">
-
 <button class="social-btn tiktok" onclick="openLink('tiktok')">
 <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"> TikTok
 </button>
@@ -199,21 +228,18 @@ alt="Redxz Avatar">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png"> Discord
 </button>
 
-<video class="profile-video" autoplay muted loop playsinline preload="metadata">
-  <source src="https://res.cloudinary.com/dektkgk3k/video/upload/video_z8tmde.mp4" type="video/mp4">
+<video class="profile-video" autoplay muted loop playsinline>
+<source src="https://res.cloudinary.com/dektkgk3k/video/upload/video_z8tmde.mp4">
 </video>
 
-<div class="watermark">
-  BY: REDXZ — COPYRIGHT © ALL RIGHTS RESERVED
-</div>
-
+<div class="watermark">BY: REDXZ — COPYRIGHT © ALL RIGHTS RESERVED</div>
 </div>
 
 <script>
 function openLink(type) {
   const links = {
     tiktok: "https://www.tiktok.com/@redxzaja",
-    whatsapp: "https://wa.me/6285199236113",
+    whatsapp: "https://wa.me/6285199236613",
     waChannel: "https://whatsapp.com/channel/0029Vb6pFq6BvvsgM44eI825",
     discord: "https://discord.gg/NkbhEuSF"
   };
@@ -224,20 +250,21 @@ function donate() {
   window.open("https://donate-redxz.edgeone.app", "_blank");
 }
 
-/* ===== AUTO HIDE ON SCROLL ===== */
+/* AUTO HIDE DONATE */
 let lastScroll = 0;
 const donateBtn = document.getElementById("donateBtn");
 
 window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
+  const current = window.pageYOffset;
+  if (current > lastScroll && current > 80) donateBtn.classList.add("hide");
+  else donateBtn.classList.remove("hide");
+  lastScroll = current;
+});
 
-  if (currentScroll > lastScroll && currentScroll > 80) {
-    donateBtn.classList.add("hide");
-  } else {
-    donateBtn.classList.remove("hide");
-  }
-
-  lastScroll = currentScroll;
+/* POPUP AUTO */
+window.addEventListener("load", () => {
+  const popup = document.getElementById("popupNotif");
+  setTimeout(() => popup.classList.add("popup-hide"), 3000);
 });
 </script>
 
